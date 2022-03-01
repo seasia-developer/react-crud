@@ -15,14 +15,14 @@ function Container({ userData, deleteUser, userEditState }) {
       var lastWordChar = "";
 
       if (value.split(" ").length > 1) {
-        var lastWordChar = value.split(" ").splice(-1).toString().charAt(0);
+        lastWordChar = value.split(" ").splice(-1).toString().charAt(0);
       }
 
       return firstWordChar + lastWordChar;
     }
   }
 
-  function deleteUser(value) {
+  function deleteUserFunc(value) {
     if (value) {
       axios
         .delete(
@@ -105,7 +105,7 @@ function Container({ userData, deleteUser, userEditState }) {
               className="w-auto flex-shrink-0 bg-red-500 hover:bg-red-800 border-teal-500 text-sm border-1 text-white py-1 px-5 rounded transition ease-in-out delay-100 hover:-translate-y-1 duration-100"
               type="button"
               onClick={() => {
-                deleteUser(userData.id);
+                deleteUserFunc(userData.id);
               }}
             >
               Delete

@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 const axios = require("axios");
 
 function Sidebar({ isActiveModalState, isAddUser }) {
+
   const [users, setUsersData] = useState([]);
 
   const location = useLocation();
@@ -14,7 +15,6 @@ function Sidebar({ isActiveModalState, isAddUser }) {
 
     // GET USERS LISTS
     var usersData = response.data.sort(function (a, b) {
-      console.log(a, b)
       a = a.name.toLowerCase();
       b = b.name.toLowerCase();
       return a < b ? -1 : a > b ? 1 : 0;
@@ -40,7 +40,7 @@ function Sidebar({ isActiveModalState, isAddUser }) {
       // SORT USERS TO RESPECTED ARRAY
       for (let j in usersArray) {
         // MATCH FIRST LETTER
-        if (usersArray[j].sortLetter == nameLetter) {
+        if (usersArray[j].sortLetter === nameLetter) {
           usersArray[j].users.push({
             id: usersData[i].id,
             name: usersData[i].name,

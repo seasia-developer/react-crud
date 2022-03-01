@@ -186,7 +186,7 @@ function Modal({ modalState, modalStateFalse, userData, isEditUser }) {
                             id="gender"
                             onChange={handleChange}
                             required
-                            defaultValue={userData ? (userData.gender ? (userData.gender == 'male' ? 'male' : 'female') : 'male') : 'male'}
+                            defaultValue={userData ? (userData.gender ? (userData.gender === 'male' ? 'male' : 'female') : 'male') : 'male'}
                           >
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -216,7 +216,7 @@ function Modal({ modalState, modalStateFalse, userData, isEditUser }) {
                             onChange={handleChange}
                             id="status"
                             required
-                            defaultValue={userData ? (userData.gender ? (userData.gender == 'active' ? 'active' : 'inactive') : 'active') : ''}
+                            defaultValue={userData ? (userData.gender ? (userData.gender === 'active' ? 'active' : 'inactive') : 'active') : ''}
                           >
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
