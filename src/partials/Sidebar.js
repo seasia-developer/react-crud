@@ -53,22 +53,7 @@ function Sidebar({ isActiveModalState, isAddUser }) {
     setUsersData(usersArray);
   }
 
-  // GET USER
-  function getUsers() {
-    axios
-      .get(
-        "https://gorest.co.in/public/v2/users?access-token=23c13269ecf765176e6d40a258bb6a78fb272f42b712300641f6615e3397124e",
-        {
-          headers: {
-            "X-Pagination-Limit": 100,
-          },
-        }
-      )
-      .then((response) => {
-        sortUsersData(response);
-      })
-      .then(() => { });
-  }
+
 
   // SEARCH USERS
   function searchUsers(query) {
@@ -86,7 +71,22 @@ function Sidebar({ isActiveModalState, isAddUser }) {
     isAddUser()
   }
 
-  useEffect(() => {
+  useEffect(() => {  // GET USER
+    function getUsers() {
+      axios
+        .get(
+          "https://gorest.co.in/public/v2/users?access-token=23c13269ecf765176e6d40a258bb6a78fb272f42b712300641f6615e3397124e",
+          {
+            headers: {
+              "X-Pagination-Limit": 100,
+            },
+          }
+        )
+        .then((response) => {
+          sortUsersData(response);
+        })
+        .then(() => { });
+    }
     // GET USERS
     getUsers();
   }, [location]);

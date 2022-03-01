@@ -28,30 +28,6 @@ function User() {
 
   const navigate = useNavigate();
 
-  // GET USER
-  function getUser() {
-    axios
-      .get(
-        `https://gorest.co.in/public/v2/users/${id}?access-token=23c13269ecf765176e6d40a258bb6a78fb272f42b712300641f6615e3397124e`
-      )
-      .then((response) => {
-        setUserData(response.data);
-      })
-      .catch((error) => {
-        alert.show("Something went wrong!", {
-          position: "top right",
-          timeout: 5000,
-          type: "error",
-        });
-        alert.show(error.message, {
-          position: "top right",
-          timeout: 5000,
-          type: "error",
-        });
-        navigate("/");
-      });
-  }
-
   const isActiveModalState = () => {
     setIsActiveModalState(true);
   };
@@ -72,6 +48,29 @@ function User() {
 
   // WATCH ROUTER
   useEffect(() => {
+    // GET USER
+    function getUser() {
+      axios
+        .get(
+          `https://gorest.co.in/public/v2/users/${id}?access-token=23c13269ecf765176e6d40a258bb6a78fb272f42b712300641f6615e3397124e`
+        )
+        .then((response) => {
+          setUserData(response.data);
+        })
+        .catch((error) => {
+          alert.show("Something went wrong!", {
+            position: "top right",
+            timeout: 5000,
+            type: "error",
+          });
+          alert.show(error.message, {
+            position: "top right",
+            timeout: 5000,
+            type: "error",
+          });
+          navigate("/");
+        });
+    }
     // GET USER
     getUser();
   }, [location]);

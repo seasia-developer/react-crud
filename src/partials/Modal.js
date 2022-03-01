@@ -1,5 +1,5 @@
 import "../Home.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAlert } from "react-alert";
 const axios = require("axios");
